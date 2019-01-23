@@ -1,17 +1,48 @@
 import React from 'react';
 import * as enzyme from 'enzyme'
 import ReactDOM from 'react-dom';
-import renderer from 'react-test-renderer';
+import reducers from './store/reducers';
+import store from './store/store';
+// @ts-ignore
+import { Provider } from 'react-redux'
 
 import App from './App';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+const addAction = {
+    type: 'ADD_DATA',
+    data: {
+        name: 'Thirty day visitor report',
+        type: 'Visitors',
+        chartType: 'bar',
+        filterTypes: ['Gender', 'Age range'],
+        frequency: 'monthly', active: true
+    },
+    index: 0
+}
+
+test('Redux addData Action Works', () => {
+    let state;
+    state = reducers({ data: [] }, addAction);
+    expect(state).toEqual({ data: [addAction.data] });
 });
 
-it('Finds the text', () => {
-    const wrapper = enzyme.shallow(<App />)
-    expect(wrapper.find('p').text()).toEqual('Working')
+
+const deleteAction = {
+    type: 'DELETE_DATA',
+    data: {
+        name: 'Thirty day visitor report',
+        type: 'Visitors',
+        chartType: 'bar',
+        filterTypes: ['Gender', 'Age range'],
+        frequency: 'monthly',
+        active: true
+    },
+    index: 0
+}
+
+
+test('Redux deleteData Action Works', () => {
+    let state;
+    state = reducers({ data: [addAction.data] }, deleteAction)
+    expect(state).toEqual({ data: [] })
 })

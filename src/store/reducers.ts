@@ -12,7 +12,6 @@ export function addDataReducer(state = initialState, action: dataActionInterface
 
         case DELETE_DATA:
             return [...state].filter((data, index) => (index !== action.index))
-            return state;
     
         default:
             return state
