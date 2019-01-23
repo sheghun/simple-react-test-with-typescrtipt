@@ -1,17 +1,15 @@
 // * Import the possible actions
-import { TEST_ACTION } from './actions';
+import { addDataActionInterface, ADD_DATA } from './actions';
 import { combineReducers } from 'redux'
+import { datas } from '../types/data';
 
-type state = string
-type action = {
-    type: string
-}
+const initialState: datas = [  ]
 
-export function testActionReducer(state: state = 'no', action: action) {
-    // * Check the action type
+export function addDataReducer(state = initialState, action: addDataActionInterface): datas {
     switch (action.type) {
-        case TEST_ACTION:
-            return state = 'yes'
+        case ADD_DATA:
+            return [...state, action.data]
+            break;
     
         default:
             return state
@@ -19,9 +17,11 @@ export function testActionReducer(state: state = 'no', action: action) {
 }
 
 
+
+
 // * Combine the reducers
 const reducers = combineReducers({
-    test: testActionReducer
+    data: addDataReducer
 })
 
 export default reducers
