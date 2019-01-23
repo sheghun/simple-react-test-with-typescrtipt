@@ -1,3 +1,10 @@
+/**
+ * Developed by Oladira Segun Solomon
+ * Email: sheghunoladiran9@gmail.com
+ * github: github.com/sheghun
+ */
+
+
 import React from 'react';
 import { withStyles, StyleRulesCallback } from '@material-ui/core/styles';
 import './App.css';
