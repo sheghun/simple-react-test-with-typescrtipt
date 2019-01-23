@@ -178,7 +178,7 @@ class App extends React.Component<Props, State> {
                                                 />
                                             </TableCell>
                                             <TableCell>
-                                                <Fab onClick={() => this.deleteData(index)} color="secondary" aria-label="Edit" className={classes.fab}>
+                                                <Fab size="small" onClick={() => this.deleteData(index)} color="secondary" aria-label="Edit" className={classes.fab}>
                                                     <CloseIcon />
                                                 </Fab>
                                             </TableCell>
