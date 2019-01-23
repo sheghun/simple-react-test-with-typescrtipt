@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders working on the p child 1`] = `
+<div
+  className="App"
+>
+  <p>
+    Working
+  </p>
+  <p>
+    Name of the boy
+  </p>
+</div>
+`;
