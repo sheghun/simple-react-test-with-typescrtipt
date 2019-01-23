@@ -1,15 +1,18 @@
 // * Import the possible actions
-import { addDataActionInterface, ADD_DATA } from './actions';
+import { dataActionInterface, ADD_DATA, DELETE_DATA } from './actions';
 import { combineReducers } from 'redux'
 import { datas } from '../types/data';
 
 const initialState: datas = [  ]
 
-export function addDataReducer(state = initialState, action: addDataActionInterface): datas {
+export function addDataReducer(state = initialState, action: dataActionInterface): datas {
     switch (action.type) {
         case ADD_DATA:
             return [...state, action.data]
-            break;
+
+        case DELETE_DATA:
+            return [...state].filter((data, index) => (index !== action.index))
+            return state;
     
         default:
             return state
